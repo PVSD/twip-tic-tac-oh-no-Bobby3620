@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class UserVsUser {
 
     //state vars will be used for the board, player one, player two
-    public int[][] theBoard;
+    public byte[][] theBoard;
     public String playerOne = "Player One";
     public String playerTwo = "Player Two";
     public char X = 'X';
@@ -20,7 +20,7 @@ public class UserVsUser {
     Random r = new Random();
 
     //Need the board array data to be passed to all methods
-    public UserVsUser(int[][] board){
+    public UserVsUser(byte[][] board){
         theBoard = board;
     }
 
@@ -42,18 +42,46 @@ public class UserVsUser {
     }
 
     public void theGame(){
-        while(gameDone != true){
-            Scanner userInput = new Scanner(System.in);
-            //byte forTheGame = userInput.nextByte();
+        Scanner userInput = new Scanner(System.in);
             if(p1GoesFirst){
                 System.out.println("It's " + playerOne + " first turn.");
-            }else if(p2GoesFirst){
-                System.out.println("It's " + playerTwo + " first turn.");
+                while(gameDone != true){
+                    //The turn will start at 1, if statement to alternate between turns
+                    //Predetermined length
+                    byte boardLen = 10;
+                        for(int turn = 1; turn <= boardLen; turn++){
+                            if(turn % 2 == 1){
+                                System.out.println(playerOne + " please select your move");
+                                System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
+                                System.out.println("Select your row");
+                                byte forTheRow = userInput.nextByte();
+                                System.out.println("Select your column");
+                                byte forTheColumn = userInput.nextByte();
+                                System.out.println("There's an " + X + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
+
+                            }else{
+                                System.out.println(playerTwo + " please select your move");
+                                System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
+                                System.out.println("Select your row");
+                                byte forTheRow = userInput.nextByte();
+                                System.out.println("Select your column");
+                                byte forTheColumn = userInput.nextByte();
+                                System.out.println("There's an " + O + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
+
+                            }
+                        }
+                    gameDone = true;
+                }
+
             }
+            if(p2GoesFirst){
+                System.out.println("It's " + playerTwo + " first turn.");
+                while(gameDone != true){
+                    byte forTheGame = userInput.nextByte();
 
 
-
-                gameDone = true;
-        }
+                    gameDone = true;
+                }
+            }
     }
 }

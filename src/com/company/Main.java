@@ -15,10 +15,11 @@ public class Main {
             Scanner kbInput = new Scanner(System.in);
             byte option = kbInput.nextByte();
 
-            //The array is the board where [0][] is the row, [][0] is the column
+            //The array is the board where [0][1] is the row, [1][0] is the column
             //Start with zero for selecting the row, then one for selecting the column
             //For example [0][2] + [1][1] would be row 3, column 2
-            int[][] board = new int[][] { {1, 2, 3}, {1, 2, 3} };
+            //All of this is expressed in index, but outputted as normal
+            byte[][] board = new byte[][] { {1, 2, 3}, {1, 2, 3} };
 
             //Three objects for each option
             UserVsUser UvU = new UserVsUser(board);
