@@ -26,9 +26,9 @@ public class Main {
             //If 1 is selected
             if(option == 1){
                 System.out.println("You selected user vs user");
-                System.out.println("The person that goes first is: " + UvU.whoGoesFirst());
                 UvU.assignmentForPlayer();
-
+                System.out.println("The person that goes first is: " + UvU.whoGoesFirst());
+                UvU.theGame();
             }
 
             //If 2 is selected
