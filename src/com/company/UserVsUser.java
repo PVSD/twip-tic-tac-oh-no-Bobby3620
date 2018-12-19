@@ -1,11 +1,34 @@
 package com.company;
+import java.util.Random;
 
 /**
  * Created by rd568 on 12/17/18.
  */
 public class UserVsUser {
 
-    //The array is the board where [0][] is the row, [][0][] is the column, [][0] is the spot in the row + column
-    public int[][] board = new int[][] { {1, 2, 3}, {1, 2, 3} };
+    //state vars will be used for the board, player one, player two
+    public int[][] theBoard;
+    public String playerOne = "Player One";
+    public String playerTwo = "Player Two";
 
+    //Need the board array data to be passed to all methods
+    public UserVsUser(int[][] board){
+        theBoard = board;
+    }
+
+    public String whoGoesFirst(){
+        Random r = new Random();
+        int ranNum = r.nextInt(101);
+
+        //Will decide who goes first
+        if(ranNum <= 49){
+            return playerOne;
+        }else{
+            return playerTwo;
+        }
+    }
+
+    public void theGame(){
+
+    }
 }
