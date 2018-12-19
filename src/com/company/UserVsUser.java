@@ -10,6 +10,10 @@ public class UserVsUser {
     public int[][] theBoard;
     public String playerOne = "Player One";
     public String playerTwo = "Player Two";
+    public char X = 'X';
+    public char O = 'O';
+
+    Random r = new Random();
 
     //Need the board array data to be passed to all methods
     public UserVsUser(int[][] board){
@@ -17,7 +21,6 @@ public class UserVsUser {
     }
 
     public String whoGoesFirst(){
-        Random r = new Random();
         int ranNum = r.nextInt(101);
 
         //Will decide who goes first
@@ -26,6 +29,10 @@ public class UserVsUser {
         }else{
             return playerTwo;
         }
+    }
+
+    public void assignmentForPlayer(){
+        System.out.println(playerOne + " is: " + X + "\n" + playerTwo + " is: " + O);
     }
 
     public void theGame(){

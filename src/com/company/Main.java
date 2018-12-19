@@ -21,12 +21,13 @@ public class Main {
             int[][] board = new int[][] { {1, 2, 3}, {1, 2, 3} };
 
             //Three objects for each option
-            UserVsUser UvU = new UserVsUser (board);
+            UserVsUser UvU = new UserVsUser(board);
 
             //If 1 is selected
             if(option == 1){
                 System.out.println("You selected user vs user");
                 System.out.println("The person that goes first is: " + UvU.whoGoesFirst());
+                UvU.assignmentForPlayer();
 
             }
 
