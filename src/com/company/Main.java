@@ -17,7 +17,7 @@ public class Main {
 
             //The array is the board where [0][] is the row, [][0] is the column
             //Start with zero for selecting the row, then one for selecting the column
-            //For example [0][2] + [1][2] would be row 2, column 2
+            //For example [0][2] + [1][1] would be row 3, column 2
             int[][] board = new int[][] { {1, 2, 3}, {1, 2, 3} };
 
             //Three objects for each option
