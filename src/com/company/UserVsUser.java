@@ -43,6 +43,7 @@ public class UserVsUser {
 
     public void theGame(){
         Scanner userInput = new Scanner(System.in);
+        possibleWins pW;
             if(p1GoesFirst){
                 System.out.println("It's " + playerOne + " first turn.");
                 while(gameDone != true){
@@ -50,16 +51,17 @@ public class UserVsUser {
                     //Predetermined length
                     byte boardLen = 10;
                         for(int turn = 1; turn <= boardLen; turn++){
-                            if(turn % 2 == 1){
+                           if(turn % 2 == 1){
                                 System.out.println(playerOne + " please select your move");
                                 System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
                                 System.out.println("Select your row");
                                 byte forTheRow = userInput.nextByte();
                                 System.out.println("Select your column");
                                 byte forTheColumn = userInput.nextByte();
+                                pW = new possibleWins(forTheRow, forTheColumn, theBoard);
                                 System.out.println("There's an " + X + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
 
-                            }else{
+                            }else if(turn % 2 == 0){
                                 System.out.println(playerTwo + " please select your move");
                                 System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
                                 System.out.println("Select your row");
@@ -75,11 +77,32 @@ public class UserVsUser {
 
             }
             if(p2GoesFirst){
-                System.out.println("It's " + playerTwo + " first turn.");
                 while(gameDone != true){
-                    byte forTheGame = userInput.nextByte();
+                    System.out.println("It's " + playerTwo + " first turn.");
+                    //The turn will start at 1, if statement to alternate between turns
+                    //Predetermined length
+                    byte boardLen = 10;
+                    for(int turn = 1; turn <= boardLen; turn++){
+                        if(turn % 2 == 1){
+                            System.out.println(playerTwo + " please select your move");
+                            System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
+                            System.out.println("Select your row");
+                            byte forTheRow = userInput.nextByte();
+                            System.out.println("Select your column");
+                            byte forTheColumn = userInput.nextByte();
+                            System.out.println("There's an " + O + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
 
+                        }else{
+                            System.out.println(playerOne + " please select your move");
+                            System.out.println("The array is the board where [0][0/1/2]=[1,2,3] is the row, [1][0/1/2]=[1,2,3] is the column");
+                            System.out.println("Select your row");
+                            byte forTheRow = userInput.nextByte();
+                            System.out.println("Select your column");
+                            byte forTheColumn = userInput.nextByte();
+                            System.out.println("There's an " + X + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
 
+                        }
+                    }
                     gameDone = true;
                 }
             }
