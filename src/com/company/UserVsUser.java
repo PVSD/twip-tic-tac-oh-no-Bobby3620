@@ -28,7 +28,8 @@ public class UserVsUser {
         int ranNum = r.nextInt(101);
 
         //Will decide who goes first
-        if(ranNum <= 49){
+        // ** CHANGE LATER **
+        if(ranNum <= 100){
             p1GoesFirst = true;
             return playerOne;
         }else{
@@ -43,12 +44,13 @@ public class UserVsUser {
 
     public void theGame(){
         Scanner userInput = new Scanner(System.in);
+        diffOutcomes dO;
             if(p1GoesFirst){
                 System.out.println("It's " + playerOne + " first turn.");
                 while(gameDone != true){
                     //The turn will start at 1, if statement to alternate between turns
                     //Predetermined length
-                    byte boardLen = 10;
+                    byte boardLen = 9;
                         for(int turn = 1; turn <= boardLen; turn++){
                             if(turn % 2 == 1){
                                 System.out.println(playerOne + " please select your move");
@@ -57,7 +59,11 @@ public class UserVsUser {
                                 byte forTheRow = userInput.nextByte();
                                 System.out.println("Select your column");
                                 byte forTheColumn = userInput.nextByte();
+                                dO = new diffOutcomes(forTheRow, forTheColumn, theBoard);
                                 System.out.println("There's an " + X + " at " + theBoard[0][forTheRow] + "," + theBoard[1][forTheColumn]);
+                                    if(forTheRow == theBoard[0][0] && forTheColumn == theBoard[1][0]){
+                                    System.out.println("This is a test");
+                                    }
 
                             }else{
                                 System.out.println(playerTwo + " please select your move");

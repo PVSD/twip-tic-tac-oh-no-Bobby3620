@@ -1,6 +1,7 @@
 package com.company;
 import java.util.Scanner;
 
+
 public class Main {
 
     public static void main(String[] args) {
@@ -19,9 +20,9 @@ public class Main {
             //Start with zero for selecting the row, then one for selecting the column
             //For example [0][2] + [1][1] would be row 3, column 2
             //All of this is expressed in index, but outputted as normal
-            byte[][] board = new byte[][] { {1, 2, 3}, {1, 2, 3} };
+            byte[][] board = new byte[][] { {0, 1, 2}, {0, 1, 2} };
 
-            //Three objects for each option
+            //Objects for each option
             UserVsUser UvU = new UserVsUser(board);
 
             //If 1 is selected
