@@ -15,7 +15,7 @@ public class possibleWins {
     //First way to win -> top row, across
     public boolean firstWay(){
         //TEMPORARY
-        return false;
+        return true;
     }
 
 }
